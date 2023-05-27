@@ -1,0 +1,16 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<partial name="~/Views/Shared/UILayoutPartials/_Head.cshtml" />
+<body class="d-flex flex-column h-100">
+    <main class="flex-shrink-0">
+        <partial name="~/Views/Shared/UILayoutPartials/_Navbar.cshtml" />
+        @RenderBody()
+    </main>
+    <partial name="~/Views/Shared/UILayoutPartials/_Footer.cshtml" />
+    <partial name="~/Views/Shared/UILayoutPartials/_Script.cshtml" />
+</body>
+</html>
