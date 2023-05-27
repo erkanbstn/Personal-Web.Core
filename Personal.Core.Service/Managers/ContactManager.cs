@@ -1,4 +1,5 @@
 ﻿using Personal.Core.Core.Models;
+using Personal.Core.Repository.DataAccess;
 using Personal.Core.Repository.Interfaces;
 using Personal.Core.Service.Services;
 using System;
@@ -19,13 +20,35 @@ namespace Personal.Core.Service.Managers
             _ContactRepository = ContactRepository;
         }
 
-        public async Task ChangeStatusAllAsync(List<Contact> t)
+        public async Task ChangeStatusAllAsync(List<Contact> t, bool status)
         {
+            if (status)
+            {
+                t.ForEach(b =>
+                {
+                    b.Status = false;
+                });
+            }
+            else
+            {
+                t.ForEach(b =>
+                {
+                    b.Status = true;
+                });
+            }
             await _ContactRepository.ChangeStatusAllAsync(t);
         }
 
-        public async Task ChangeStatusAsync(Contact t)
+        public async Task ChangeStatusAsync(Contact t, bool status)
         {
+            if (status)
+            {
+                t.Status = false;
+            }
+            else
+            {
+                t.Status = true;
+            }
             await _ContactRepository.ChangeStatusAsync(t);
         }
 

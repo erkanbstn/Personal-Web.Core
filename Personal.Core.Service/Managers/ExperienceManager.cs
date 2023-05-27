@@ -1,4 +1,5 @@
 ﻿using Personal.Core.Core.Models;
+using Personal.Core.Repository.DataAccess;
 using Personal.Core.Repository.Interfaces;
 using Personal.Core.Service.Services;
 using System;
@@ -19,13 +20,35 @@ namespace Personal.Core.Service.Managers
             _ExperienceRepository = ExperienceRepository;
         }
 
-        public async Task ChangeStatusAllAsync(List<Experience> t)
+        public async Task ChangeStatusAllAsync(List<Experience> t, bool status)
         {
+            if (status)
+            {
+                t.ForEach(b =>
+                {
+                    b.Status = false;
+                });
+            }
+            else
+            {
+                t.ForEach(b =>
+                {
+                    b.Status = true;
+                });
+            }
             await _ExperienceRepository.ChangeStatusAllAsync(t);
         }
 
-        public async Task ChangeStatusAsync(Experience t)
+        public async Task ChangeStatusAsync(Experience t, bool status)
         {
+            if (status)
+            {
+                t.Status = false;
+            }
+            else
+            {
+                t.Status = true;
+            }
             await _ExperienceRepository.ChangeStatusAsync(t);
         }
 

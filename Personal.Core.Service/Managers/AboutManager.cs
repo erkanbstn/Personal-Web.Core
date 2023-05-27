@@ -19,13 +19,35 @@ namespace Personal.Core.Service.Managers
             _aboutRepository = aboutRepository;
         }
 
-        public async Task ChangeStatusAllAsync(List<About> t)
+        public async Task ChangeStatusAllAsync(List<About> t, bool status)
         {
+            if (status)
+            {
+                t.ForEach(b =>
+                {
+                    b.Status = false;
+                });
+            }
+            else
+            {
+                t.ForEach(b =>
+                {
+                    b.Status = true;
+                });
+            }
             await _aboutRepository.ChangeStatusAllAsync(t);
         }
 
-        public async Task ChangeStatusAsync(About t)
+        public async Task ChangeStatusAsync(About t, bool status)
         {
+            if (status)
+            {
+                t.Status = false;
+            }
+            else
+            {
+                t.Status = true;
+            }
             await _aboutRepository.ChangeStatusAsync(t);
         }
 

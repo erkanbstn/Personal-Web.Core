@@ -18,7 +18,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Personal.Core.Dto\Personal.Core.Dto.csproj" />
     <ProjectReference Include="..\Personal.Core.Repository\Personal.Core.Repository.csproj" />
+    <ProjectReference Include="..\Personal.Core.Service\Personal.Core.Service.csproj" />
   </ItemGroup>
 
 </Project>

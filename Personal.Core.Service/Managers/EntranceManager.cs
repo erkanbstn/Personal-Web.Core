@@ -1,4 +1,5 @@
 ﻿using Personal.Core.Core.Models;
+using Personal.Core.Repository.DataAccess;
 using Personal.Core.Repository.Interfaces;
 using Personal.Core.Service.Services;
 using System;
@@ -19,13 +20,35 @@ namespace Personal.Core.Service.Managers
             _EntranceRepository = EntranceRepository;
         }
 
-        public async Task ChangeStatusAllAsync(List<Entrance> t)
+        public async Task ChangeStatusAllAsync(List<Entrance> t, bool status)
         {
+            if (status)
+            {
+                t.ForEach(b =>
+                {
+                    b.Status = false;
+                });
+            }
+            else
+            {
+                t.ForEach(b =>
+                {
+                    b.Status = true;
+                });
+            }
             await _EntranceRepository.ChangeStatusAllAsync(t);
         }
 
-        public async Task ChangeStatusAsync(Entrance t)
+        public async Task ChangeStatusAsync(Entrance t, bool status)
         {
+            if (status)
+            {
+                t.Status = false;
+            }
+            else
+            {
+                t.Status = true;
+            }
             await _EntranceRepository.ChangeStatusAsync(t);
         }
 

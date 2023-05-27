@@ -20,5 +20,7 @@ namespace Personal.Core.Repository.DataAccess
         public DbSet<Project> Projects { get; set; }
         public DbSet<Experience> Experiences { get; set; }
         public DbSet<Entrance> Entrances { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<Language> Languages { get; set; }
     }
 }

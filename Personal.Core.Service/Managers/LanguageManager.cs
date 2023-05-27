@@ -1,4 +1,5 @@
 ﻿using Personal.Core.Core.Models;
+using Personal.Core.Repository.DataAccess;
 using Personal.Core.Repository.Interfaces;
 using Personal.Core.Service.Services;
 using System;
@@ -19,13 +20,35 @@ namespace Personal.Core.Service.Managers
             _LanguageRepository = LanguageRepository;
         }
 
-        public async Task ChangeStatusAllAsync(List<Language> t)
+        public async Task ChangeStatusAllAsync(List<Language> t, bool status)
         {
+            if (status)
+            {
+                t.ForEach(b =>
+                {
+                    b.Status = false;
+                });
+            }
+            else
+            {
+                t.ForEach(b =>
+                {
+                    b.Status = true;
+                });
+            }
             await _LanguageRepository.ChangeStatusAllAsync(t);
         }
 
-        public async Task ChangeStatusAsync(Language t)
+        public async Task ChangeStatusAsync(Language t, bool status)
         {
+            if (status)
+            {
+                t.Status = false;
+            }
+            else
+            {
+                t.Status = true;
+            }
             await _LanguageRepository.ChangeStatusAsync(t);
         }
 

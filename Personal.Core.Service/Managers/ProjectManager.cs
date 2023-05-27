@@ -1,4 +1,5 @@
 ﻿using Personal.Core.Core.Models;
+using Personal.Core.Repository.DataAccess;
 using Personal.Core.Repository.Interfaces;
 using Personal.Core.Service.Services;
 using System;
@@ -19,13 +20,35 @@ namespace Personal.Core.Service.Managers
             _ProjectRepository = ProjectRepository;
         }
 
-        public async Task ChangeStatusAllAsync(List<Project> t)
+        public async Task ChangeStatusAllAsync(List<Project> t, bool status)
         {
+            if (status)
+            {
+                t.ForEach(b =>
+                {
+                    b.Status = false;
+                });
+            }
+            else
+            {
+                t.ForEach(b =>
+                {
+                    b.Status = true;
+                });
+            }
             await _ProjectRepository.ChangeStatusAllAsync(t);
         }
 
-        public async Task ChangeStatusAsync(Project t)
+        public async Task ChangeStatusAsync(Project t, bool status)
         {
+            if (status)
+            {
+                t.Status = false;
+            }
+            else
+            {
+                t.Status = true;
+            }
             await _ProjectRepository.ChangeStatusAsync(t);
         }
 
