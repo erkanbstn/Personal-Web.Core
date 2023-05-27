@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Personal.Core.Core.Models;
 using Personal.Core.Dto.Dtos.About;
+using Personal.Core.Dto.Dtos.Contact;
 using Personal.Core.Dto.Dtos.Education;
 using Personal.Core.Dto.Dtos.Entrance;
 using Personal.Core.Dto.Dtos.Experience;
@@ -21,6 +22,8 @@ namespace PersonalUI.Core.Mapping.AutoMapperProfile
 			CreateMap<ProjectListDto, Project>().ReverseMap();
 			CreateMap<SkillListDto, Skill>().ReverseMap();
 			CreateMap<LanguageListDto, Language>().ReverseMap();
+			CreateMap<ContactListDto, Contact>().ReverseMap();
+			CreateMap<ContactAddDto, Contact>().ReverseMap();
 
 		}
 	}

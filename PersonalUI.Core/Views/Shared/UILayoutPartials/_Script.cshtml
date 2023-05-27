@@ -1,3 +1,34 @@
 ﻿<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/Portfolio/js/scripts.js"></script>
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $("#submitButton").click(() => {
+        let MessageObject = {
+            FullName: $("#name").val(),
+            Email: $("#email").val(),
+            Phone: $("#phone").val(),
+            Message: $("#message").val()
+        };
+        $.ajax({
+            url: '/Main/SendMessage',
+            type: 'POST',
+            data: MessageObject,
+            success: function (data) {
+                if (data.data == true) {
+                    Swal.fire({
+                        title: 'Your Message Has Been Sent Successfully',
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
+                    })
+                }
+            }
+        });
+    });
+</script>
