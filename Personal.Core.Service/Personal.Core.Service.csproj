@@ -7,7 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Managers\" />
+    <ProjectReference Include="..\Personal.Core.Core\Personal.Core.Core.csproj" />
+    <ProjectReference Include="..\Personal.Core.Repository\Personal.Core.Repository.csproj" />
   </ItemGroup>
 
 </Project>
