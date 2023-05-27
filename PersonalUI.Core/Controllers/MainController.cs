@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Personal.Core.Dto.Dtos.Contact;
 using Personal.Core.Dto.Dtos.Entrance;
+using Personal.Core.Dto.Dtos.Experience;
 using Personal.Core.Service.Services;
 
 namespace PersonalUI.Core.Controllers
@@ -10,12 +11,14 @@ namespace PersonalUI.Core.Controllers
     {
         private readonly IEntranceService _entranceService;
         private readonly IContactService _contactService;
+        private readonly IExperienceService _experienceService;
         private readonly IMapper _mapper;
-        public MainController(IEntranceService entranceService, IMapper mapper, IContactService contactService)
+        public MainController(IEntranceService entranceService, IMapper mapper, IContactService contactService, IExperienceService experienceService)
         {
             _entranceService = entranceService;
             _mapper = mapper;
             _contactService = contactService;
+            _experienceService = experienceService;
         }
 
         public async Task<IActionResult> Index()
@@ -24,7 +27,7 @@ namespace PersonalUI.Core.Controllers
         }
         public async Task<IActionResult> Resume()
         {
-            return View();
+            return View(_mapper.Map<List<ExperienceListDto>>(await _experienceService.ToListByFilterAsync(x => x.Status == true)));
         }
         public async Task<IActionResult> Contact()
         {
