@@ -22,5 +22,6 @@ namespace Personal.Core.Repository.DataAccess
         public DbSet<Entrance> Entrances { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Language> Languages { get; set; }
+        public DbSet<Manager> Managers{ get; set; }
     }
 }
