@@ -36,7 +36,7 @@ namespace PersonalUI.Core.Controllers
                 return View();
             }
             await HttpContext.SignInAsync(await _managerService.SignInWithClaimAsync(userLogin));
-            return Redirect("~/Admin/Dashboard/Index");
+            return Redirect("~/Admin/Entrance/Index");
         }
         public async Task<IActionResult> SignOut()
         {
