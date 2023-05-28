@@ -12,14 +12,16 @@
             <div class="col-lg-11 col-xl-9 col-xxl-8">
                 @foreach (var Project in Model)
                 {
-                    <div class="card overflow-hidden shadow rounded-4 border-0">
+                    <div class="card overflow-hidden shadow rounded-4 border-0 mb-4">
                         <div class="card-body p-0">
                             <div class="d-flex align-items-center">
                                 <div class="p-5">
                                     <h2 class="fw-bolder">@Project.Title</h2>
                                     <p>@Project.Content</p>
                                 </div>
-                                <img class="img-fluid" src="~/Images/@Project.ImageUrl" alt="..." />
+                                <div>
+                                    <img  src="~/Images/@Project.ImageUrl" width="400px" height="350px" alt="..." />
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -37,3 +39,16 @@
         </div>
     </div>
 </section>
+@*<div class="card overflow-hidden shadow rounded-4 border-0 mb-4">
+    <div class="card-body p-0">
+        <div class="d-flex align-items-center">
+            <div class="p-5">
+                <h2 class="fw-bolder">@Project.Title</h2>
+                <p>@Project.Content</p>
+            </div>
+            <div>
+                <img src="~/Images/@Project.ImageUrl" width="400px" height="350px" alt="..." />
+            </div>
+        </div>
+    </div>
+</div>*@

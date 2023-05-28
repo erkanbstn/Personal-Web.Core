@@ -1,4 +1,5 @@
-﻿using Personal.Core.Repository.DataAccess;
+﻿using Microsoft.Extensions.FileProviders;
+using Personal.Core.Repository.DataAccess;
 using Personal.Core.Repository.Interfaces;
 using Personal.Core.Service.Managers;
 using Personal.Core.Service.Services;
@@ -42,6 +43,10 @@ namespace PersonalUI.Core.Extensions
 
             services.AddScoped<ISkillRepository, SkillRepository>();
             services.AddScoped<ISkillService, SkillManager>();
+
+            // File Configuration
+
+            services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Directory.GetCurrentDirectory()));
         }
 	}
 }

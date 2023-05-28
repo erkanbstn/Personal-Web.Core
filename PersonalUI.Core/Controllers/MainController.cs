@@ -1,11 +1,12 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.FileProviders;
 using Personal.Core.Dto.Dtos.Contact;
 using Personal.Core.Dto.Dtos.Entrance;
 using Personal.Core.Dto.Dtos.Experience;
 using Personal.Core.Dto.Dtos.Project;
 using Personal.Core.Service.Services;
-
+using System.IO;
 namespace PersonalUI.Core.Controllers
 {
     public class MainController : Controller
@@ -15,13 +16,15 @@ namespace PersonalUI.Core.Controllers
         private readonly IContactService _contactService;
         private readonly IExperienceService _experienceService;
         private readonly IMapper _mapper;
-        public MainController(IEntranceService entranceService, IMapper mapper, IContactService contactService, IExperienceService experienceService, IProjectService projectService)
+        private readonly IFileProvider _fileProvider;
+        public MainController(IEntranceService entranceService, IMapper mapper, IContactService contactService, IExperienceService experienceService, IProjectService projectService, IFileProvider fileProvider)
         {
             _entranceService = entranceService;
             _mapper = mapper;
             _contactService = contactService;
             _experienceService = experienceService;
             _projectService = projectService;
+            _fileProvider = fileProvider;
         }
 
         public async Task<IActionResult> Index()
@@ -57,6 +60,12 @@ namespace PersonalUI.Core.Controllers
                 Message = contactAddDto.Message,
             });
             return Json(new { data = true });
+        }
+        public async Task<IActionResult> ExportPdf()
+        {
+            var filePath =_fileProvider.GetDirectoryContents("wwwroot/Files").First(x => x.Name == "CV_Erkan_Bostan.pdf").PhysicalPath;
+            var file = System.IO.File.ReadAllBytes(filePath);
+            return File(file, "application/pdf", "CV_Erkan_Bostan.pdf");
         }
     }
 }
