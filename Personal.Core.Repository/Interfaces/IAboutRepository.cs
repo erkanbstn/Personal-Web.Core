@@ -9,5 +9,6 @@ namespace Personal.Core.Repository.Interfaces
 {
     public interface IAboutRepository : IModelRepository<About>
     {
+        Task<int> GetClickCountAsync();
     }
 }

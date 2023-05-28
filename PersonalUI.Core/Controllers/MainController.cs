@@ -15,9 +15,10 @@ namespace PersonalUI.Core.Controllers
         private readonly IEntranceService _entranceService;
         private readonly IContactService _contactService;
         private readonly IExperienceService _experienceService;
+        private readonly IAboutService _aboutService;
         private readonly IMapper _mapper;
         private readonly IFileProvider _fileProvider;
-        public MainController(IEntranceService entranceService, IMapper mapper, IContactService contactService, IExperienceService experienceService, IProjectService projectService, IFileProvider fileProvider)
+        public MainController(IEntranceService entranceService, IMapper mapper, IContactService contactService, IExperienceService experienceService, IProjectService projectService, IFileProvider fileProvider, IAboutService aboutService)
         {
             _entranceService = entranceService;
             _mapper = mapper;
@@ -25,6 +26,7 @@ namespace PersonalUI.Core.Controllers
             _experienceService = experienceService;
             _projectService = projectService;
             _fileProvider = fileProvider;
+            _aboutService = aboutService;
         }
 
         public async Task<IActionResult> Index()
@@ -33,6 +35,7 @@ namespace PersonalUI.Core.Controllers
         }
         public async Task<IActionResult> Resume()
         {
+            ViewBag.clickCount = await _aboutService.GetClickCountAsync();
             return View(_mapper.Map<List<ExperienceListDto>>(await _experienceService.OrderByDescendingExperience()));
         }
         public async Task<IActionResult> Contact()
@@ -63,9 +66,18 @@ namespace PersonalUI.Core.Controllers
         }
         public async Task<IActionResult> ExportPdf()
         {
-            var filePath =_fileProvider.GetDirectoryContents("wwwroot/Files").First(x => x.Name == "CV_Erkan_Bostan.pdf").PhysicalPath;
+            var filePath = _fileProvider.GetDirectoryContents("wwwroot/Files").First(x => x.Name == "CV_Erkan_Bostan.pdf").PhysicalPath;
             var file = System.IO.File.ReadAllBytes(filePath);
             return File(file, "application/pdf", "CV_Erkan_Bostan.pdf");
+        }
+        [HttpPost]
+        public async Task<JsonResult> IncreaseDownloadCount()
+        {
+            var about = await _aboutService.GetByIdAsync(1);
+            about.ClickCount++;
+            await _aboutService.UpdateAsync(about);
+            var count = await _aboutService.GetClickCountAsync();
+            return Json(new { data = count });
         }
     }
 }

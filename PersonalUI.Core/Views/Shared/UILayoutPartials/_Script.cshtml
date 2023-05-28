@@ -5,6 +5,8 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+
+    // Send Message
     $("#submitButton").click(() => {
         let MessageObject = {
             FullName: $("#name").val(),
@@ -35,5 +37,25 @@
         $("#email").val("");
         $("#phone").val("");
         $("#message").val("");
+    });
+
+    // Click Count
+    $("#BtnCount").click(() => {
+        $.ajax({
+            url: '/Main/IncreaseDownloadCount',
+            type: "POST",
+            success: function (data) {
+                $("#spanCount").html(`Resume Downloaded <b>` + data.data +`</b> Times`);
+                Swal.fire({
+                    title: 'Resume Download Has Been Successfully',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                })
+            }
+        });
     });
 </script>

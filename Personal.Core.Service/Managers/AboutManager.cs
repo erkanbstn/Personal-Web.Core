@@ -66,6 +66,11 @@ namespace Personal.Core.Service.Managers
             return await _aboutRepository.GetByIdAsync(id);
         }
 
+        public async Task<int> GetClickCountAsync()
+        {
+            return await _aboutRepository.GetClickCountAsync();
+        }
+
         public async Task InsertAsync(About t)
         {
             await _aboutRepository.InsertAsync(t);

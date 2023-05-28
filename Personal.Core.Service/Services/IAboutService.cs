@@ -9,5 +9,6 @@ namespace Personal.Core.Service.Services
 {
     public interface IAboutService : IRepositoryService<About>
     {
+        Task<int> GetClickCountAsync();
     }
 }

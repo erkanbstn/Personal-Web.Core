@@ -12,6 +12,7 @@ namespace Personal.Core.Core.Models
         public string Content { get; set; }
         public string GithubUrl { get; set; }
         public string LinkedInUrl { get; set; }
+        public int ClickCount { get; set; }
 
     }
 }
