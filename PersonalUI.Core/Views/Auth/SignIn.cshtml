@@ -1,4 +1,5 @@
-﻿@{
+﻿@model ManagerLoginDto
+@{
     Layout = null;
 }
 
@@ -31,7 +32,7 @@
                     </span>
 
                     <div class="wrap-input100 validate-input">
-                        <input class="input100" type="text" placeholder="Email" required>
+                        <input class="input100" type="text" asp-for="UserName" placeholder="Kullanıcı Adı" required>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-envelope" aria-hidden="true"></i>
@@ -39,7 +40,7 @@
                     </div>
 
                     <div class="wrap-input100 validate-input">
-                        <input class="input100" type="password" placeholder="Parola" required>
+                        <input class="input100" type="password" asp-for="Password" placeholder="Parola" required>
                         <span class="focus-input100"></span>
                         <span class="symbol-input100">
                             <i class="fa fa-lock" aria-hidden="true"></i>

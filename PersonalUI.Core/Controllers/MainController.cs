@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.FileProviders;
 using Personal.Core.Dto.Dtos.Contact;
@@ -6,9 +7,9 @@ using Personal.Core.Dto.Dtos.Entrance;
 using Personal.Core.Dto.Dtos.Experience;
 using Personal.Core.Dto.Dtos.Project;
 using Personal.Core.Service.Services;
-using System.IO;
 namespace PersonalUI.Core.Controllers
 {
+    [AllowAnonymous]
     public class MainController : Controller
     {
         private readonly IProjectService _projectService;

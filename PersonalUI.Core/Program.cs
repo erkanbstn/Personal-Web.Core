@@ -31,6 +31,7 @@ app.UseStatusCodePagesWithReExecute("/Main/Error", "?code={0}");
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 
 // Default Controllers

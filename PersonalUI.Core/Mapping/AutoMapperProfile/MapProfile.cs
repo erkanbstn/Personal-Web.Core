@@ -6,6 +6,7 @@ using Personal.Core.Dto.Dtos.Education;
 using Personal.Core.Dto.Dtos.Entrance;
 using Personal.Core.Dto.Dtos.Experience;
 using Personal.Core.Dto.Dtos.Language;
+using Personal.Core.Dto.Dtos.Manager;
 using Personal.Core.Dto.Dtos.Project;
 using Personal.Core.Dto.Dtos.Skill;
 
