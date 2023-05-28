@@ -9,5 +9,6 @@ namespace Personal.Core.Repository.Interfaces
 {
     public interface IEducationRepository : IModelRepository<Education>
     {
+        Task<List<Education>> OrderByDescendingEducation();
     }
 }

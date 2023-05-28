@@ -72,6 +72,11 @@ namespace Personal.Core.Service.Managers
             await _ProjectRepository.InsertAsync(t);
         }
 
+        public async Task<List<Project>> OrderByDescendingProject()
+        {
+            return await _ProjectRepository.OrderByDescendingProject();
+        }
+
         public async Task<List<Project>> ToListAsync()
         {
             return await _ProjectRepository.ToListAsync();

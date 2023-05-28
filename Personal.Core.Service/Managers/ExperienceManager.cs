@@ -72,6 +72,11 @@ namespace Personal.Core.Service.Managers
             await _ExperienceRepository.InsertAsync(t);
         }
 
+        public async Task<List<Experience>> OrderByDescendingExperience()
+        {
+            return await _ExperienceRepository.OrderByDescendingExperience();
+        }
+
         public async Task<List<Experience>> ToListAsync()
         {
             return await _ExperienceRepository.ToListAsync();

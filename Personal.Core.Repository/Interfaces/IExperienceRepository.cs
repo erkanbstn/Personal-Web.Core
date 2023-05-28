@@ -9,5 +9,6 @@ namespace Personal.Core.Repository.Interfaces
 {
     public interface IExperienceRepository : IModelRepository<Experience>
     {
+        Task<List<Experience>> OrderByDescendingExperience();
     }
 }

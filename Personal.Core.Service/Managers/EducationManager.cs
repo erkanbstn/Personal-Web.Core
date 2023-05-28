@@ -72,6 +72,11 @@ namespace Personal.Core.Service.Managers
             await _EducationRepository.InsertAsync(t);
         }
 
+        public async Task<List<Education>> OrderByDescendingEducation()
+        {
+            return await _EducationRepository.OrderByDescendingEducation();
+        }
+
         public async Task<List<Education>> ToListAsync()
         {
             return await _EducationRepository.ToListAsync();

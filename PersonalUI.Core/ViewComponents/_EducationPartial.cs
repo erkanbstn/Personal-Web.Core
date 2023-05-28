@@ -18,7 +18,7 @@ namespace PersonalUI.Core.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View(_mapper.Map<List<EducationListDto>>(await _EducationService.ToListByFilterAsync(x => x.Status == true)));
+            return View(_mapper.Map<List<EducationListDto>>(await _EducationService.OrderByDescendingEducation()));
         }
     }
 }

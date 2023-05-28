@@ -13,5 +13,6 @@ namespace Personal.Core.Service.Services
         Task<T> GetByIdAsync(int id);
         Task<List<T>> ToListAsync();
         Task<List<T>> ToListByFilterAsync(Expression<Func<T, bool>> filter);
+
     }
 }

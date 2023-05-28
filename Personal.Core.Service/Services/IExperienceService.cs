@@ -9,5 +9,7 @@ namespace Personal.Core.Service.Services
 {
     public interface IExperienceService : IRepositoryService<Experience>
     {
+        Task<List<Experience>> OrderByDescendingExperience();
+
     }
 }

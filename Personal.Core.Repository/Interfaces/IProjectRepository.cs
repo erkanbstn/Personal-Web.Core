@@ -9,5 +9,7 @@ namespace Personal.Core.Repository.Interfaces
 {
     public  interface IProjectRepository : IModelRepository<Project>
     {
+        Task<List<Project>> OrderByDescendingProject();
+
     }
 }

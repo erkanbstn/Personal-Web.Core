@@ -9,5 +9,6 @@ namespace Personal.Core.Service.Services
 {
     public interface IEducationService : IRepositoryService<Education>
     {
+        Task<List<Education>> OrderByDescendingEducation();
     }
 }

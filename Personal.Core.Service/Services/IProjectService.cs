@@ -9,5 +9,7 @@ namespace Personal.Core.Service.Services
 {
     public interface IProjectService : IRepositoryService<Project>
     {
+        Task<List<Project>> OrderByDescendingProject();
+
     }
 }
