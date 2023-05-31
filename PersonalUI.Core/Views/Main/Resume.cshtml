@@ -14,10 +14,16 @@
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h2 class="text-primary fw-bolder mb-0">Experience</h2>
                     <span id="spanCount">Resume Downloaded <b>@ViewBag.clickCount</b> Times</span>
-                    <a class="btn btn-primary px-4 py-3" id="BtnCount" href="~/Main/ExportPdf">
-                        <div class="d-inline-block bi bi-download me-2"></div>
-                        Download Resume
-                    </a>
+                    <div class="dropdown show">
+                        <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Download Resume
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item BtnCount" href="~/Main/ExportPdf/TR">TR | Özgeçmiş</a>
+                            <a class="dropdown-item BtnCount" href="~/Main/ExportPdf/EN">EN | Resume</a>
+                        </div>
+                    </div>
+                  
                 </div>
                 @foreach (var Experience in Model)
                 {

@@ -18,8 +18,9 @@ namespace PersonalUI.Core.Controllers
         private readonly IExperienceService _experienceService;
         private readonly IAboutService _aboutService;
         private readonly IMapper _mapper;
+        private readonly IPdfService _pdfService;
         private readonly IFileProvider _fileProvider;
-        public MainController(IEntranceService entranceService, IMapper mapper, IContactService contactService, IExperienceService experienceService, IProjectService projectService, IFileProvider fileProvider, IAboutService aboutService)
+        public MainController(IEntranceService entranceService, IMapper mapper, IContactService contactService, IExperienceService experienceService, IProjectService projectService, IFileProvider fileProvider, IAboutService aboutService, IPdfService pdfService)
         {
             _entranceService = entranceService;
             _mapper = mapper;
@@ -28,6 +29,7 @@ namespace PersonalUI.Core.Controllers
             _projectService = projectService;
             _fileProvider = fileProvider;
             _aboutService = aboutService;
+            _pdfService = pdfService;
         }
 
         public async Task<IActionResult> Index()
@@ -65,11 +67,9 @@ namespace PersonalUI.Core.Controllers
             });
             return Json(new { data = true });
         }
-        public async Task<IActionResult> ExportPdf()
+        public async Task<IActionResult> ExportPdf(string id)
         {
-            var filePath = _fileProvider.GetDirectoryContents("wwwroot/Files").First(x => x.Name == "CV_Erkan_Bostan.pdf").PhysicalPath;
-            var file = System.IO.File.ReadAllBytes(filePath);
-            return File(file, "application/pdf", "CV_Erkan_Bostan.pdf");
+            return File(await _pdfService.ExportResumeAsync("wwwroot/Files", $"CV_Erkan_Bostan_{id}.pdf"), "application/pdf", $"CV_Erkan_Bostan_{id}.pdf");
         }
         [HttpPost]
         public async Task<JsonResult> IncreaseDownloadCount()
