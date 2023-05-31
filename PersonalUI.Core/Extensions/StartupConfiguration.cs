@@ -50,7 +50,7 @@ namespace PersonalUI.Core.Extensions
             services.AddScoped<IManagerRepository, ManagerRepository>();
             services.AddScoped<IManagerService, ManagerManager>();
 
-            services.AddScoped<IPdfService, PdfManager>();
+            services.AddScoped<IFileService, FileManager>();
             // File Configuration
 
             services.AddSingleton<IFileProvider>(new PhysicalFileProvider(Directory.GetCurrentDirectory()));

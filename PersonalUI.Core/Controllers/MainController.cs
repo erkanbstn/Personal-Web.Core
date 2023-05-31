@@ -17,8 +17,8 @@ namespace PersonalUI.Core.Controllers
         private readonly IExperienceService _experienceService;
         private readonly IAboutService _aboutService;
         private readonly IMapper _mapper;
-        private readonly IPdfService _pdfService;
-        public MainController(IEntranceService entranceService, IMapper mapper, IContactService contactService, IExperienceService experienceService, IProjectService projectService, IAboutService aboutService, IPdfService pdfService)
+        private readonly IFileService _pdfService;
+        public MainController(IEntranceService entranceService, IMapper mapper, IContactService contactService, IExperienceService experienceService, IProjectService projectService, IAboutService aboutService, IFileService pdfService)
         {
             _entranceService = entranceService;
             _mapper = mapper;

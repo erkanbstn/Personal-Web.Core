@@ -1,17 +1,20 @@
-﻿@model List<EntranceListDto>
+﻿@model List<AboutListDto>
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<h1>Entrance</h1>
+
+<h1>About</h1>
 <hr />
 <div class="card-body px-0 pt-0 pb-2">
     <div class="table-responsive p-0">
         <table class="table align-items-center mb-0">
             <thead>
                 <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title | Content</th>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Detail</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">LinkedIn</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Github</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
@@ -19,26 +22,27 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var Ent in Model)
+                @foreach (var Abo in Model)
                 {
                     <tr>
                         <td>
                             <div class="d-flex px-2 py-1">
-                                <div>
-                                    <img src="~/Images/@Ent.ImageUrl" class="avatar avatar-sm me-3" alt="user1">
-                                </div>
                                 <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">@Ent.Title</h6>
+                                    <h6 class="mb-0 text-sm">@Abo.Title</h6>
                                     @*<p class="text-xs text-secondary mb-0">john@creative-tim.com</p>*@
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <p class="text-xs font-weight-bold mb-0">@Ent.Content</p>
+                            <p class="text-xs font-weight-bold mb-0">@Abo.LinkedInUrl</p>
+                            @*<p class="text-xs text-secondary mb-0">Organization</p>*@
+                        </td>
+                        <td>
+                            <p class="text-xs font-weight-bold mb-0">@Abo.GithubUrl</p>
                             @*<p class="text-xs text-secondary mb-0">Organization</p>*@
                         </td>
                         <td class="align-middle text-center text-sm">
-                            @if (Ent.Status)
+                            @if (Abo.Status)
                             {
                                 <span class="badge badge-sm bg-gradient-success">Active</span>
                             }
@@ -48,26 +52,26 @@
                             }
                         </td>
                         <td class="align-middle text-center">
-                            <span class="text-secondary text-xs font-weight-bold">@Convert.ToDateTime(Ent.CreatedAt).ToString("dd/MM/yyyy")</span>
+                            <span class="text-secondary text-xs font-weight-bold">@Convert.ToDateTime(Abo.CreatedAt).ToString("dd/MM/yyyy")</span>
                         </td>
                         <td class="align-middle">
-                            <a href="~/Admin/Entrance/EditEntrance/@Ent.Id" class="text-info font-weight-bold text-xs" data-toggle="tooltip">
+                            <a href="javascript:;" class="text-info font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                 Edit
                             </a>
                             |
-                            <a href="~/Admin/Entrance/DeleteEntrance/@Ent.Id" class="text-warning font-weight-bold text-xs" data-toggle="tooltip">
+                            <a href="javascript:;" class="text-warning font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                 Delete
                             </a>
                             |
-                            @if (Ent.Status)
+                            @if (Abo.Status)
                             {
-                                <a href="~/Admin/Entrance/ChangeStatusEntrance/@Ent.Id" class="text-danger font-weight-bold text-xs" data-toggle="tooltip">
+                                <a href="javascript:;" class="text-danger font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                     Passive
                                 </a>
                             }
                             else
                             {
-                                <a href="~/Admin/Entrance/ChangeStatusEntrance/@Ent.Id" class="text-success font-weight-bold text-xs" data-toggle="tooltip">
+                                <a href="javascript:;" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                     Active
                                 </a>
                             }
@@ -78,3 +82,4 @@
         </table>
     </div>
 </div>
+

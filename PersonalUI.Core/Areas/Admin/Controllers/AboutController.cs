@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Personal.Core.Dto.Dtos.About;
 using Personal.Core.Dto.Dtos.Entrance;
 using Personal.Core.Service.Services;
 
@@ -21,7 +22,7 @@ namespace PersonalUI.Core.Areas.Admin.Controllers
 
         public async Task<IActionResult> Index()
         {
-            return View(_mapper.Map<List<EntranceListDto>>(await _aboutService.ToListAsync()));
+            return View(_mapper.Map<List<AboutListDto>>(await _aboutService.ToListAsync()));
         }
     }
 }

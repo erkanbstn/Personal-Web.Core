@@ -1,0 +1,27 @@
+﻿@model EntranceEditDto
+@{
+    ViewData["Title"] = "EditEntrance";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit Entrance</h1>
+<hr />
+<div class="row">
+    <form method="post" enctype="multipart/form-data">
+        <input asp-for="Id" class="form-control" type="hidden" />
+        <span>Title</span>
+        <input asp-for="Title" class="form-control" type="text" placeholder="Enter Title.." />
+        <br />
+        <span>Content</span>
+        <input asp-for="Content" class="form-control" type="text" placeholder="Enter Content.." />
+        <br />
+        <span>Detail</span>
+        <input asp-for="Detail" class="form-control" type="text" placeholder="Enter Detail.." />
+        <br />
+        <span>Picture</span>
+        <input type="file" asp-for="Picture" class="form-control" placeholder="Choose File" />
+        <br />
+        <input class="btn btn-info" value="Save Changes" type="submit" />
+    </form>
+</div>
+
