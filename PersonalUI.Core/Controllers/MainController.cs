@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.FileProviders;
 using Personal.Core.Dto.Dtos.Contact;
 using Personal.Core.Dto.Dtos.Entrance;
 using Personal.Core.Dto.Dtos.Experience;
@@ -19,15 +18,13 @@ namespace PersonalUI.Core.Controllers
         private readonly IAboutService _aboutService;
         private readonly IMapper _mapper;
         private readonly IPdfService _pdfService;
-        private readonly IFileProvider _fileProvider;
-        public MainController(IEntranceService entranceService, IMapper mapper, IContactService contactService, IExperienceService experienceService, IProjectService projectService, IFileProvider fileProvider, IAboutService aboutService, IPdfService pdfService)
+        public MainController(IEntranceService entranceService, IMapper mapper, IContactService contactService, IExperienceService experienceService, IProjectService projectService, IAboutService aboutService, IPdfService pdfService)
         {
             _entranceService = entranceService;
             _mapper = mapper;
             _contactService = contactService;
             _experienceService = experienceService;
             _projectService = projectService;
-            _fileProvider = fileProvider;
             _aboutService = aboutService;
             _pdfService = pdfService;
         }

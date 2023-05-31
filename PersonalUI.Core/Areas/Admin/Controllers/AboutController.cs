@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Personal.Core.Dto.Dtos.Entrance;
+using Personal.Core.Service.Services;
 
 namespace PersonalUI.Core.Areas.Admin.Controllers
 {
@@ -7,9 +10,18 @@ namespace PersonalUI.Core.Areas.Admin.Controllers
     [Authorize]
     public class AboutController : Controller
     {
-        public IActionResult Index()
+        private readonly IAboutService _aboutService;
+        private readonly IMapper _mapper;
+
+        public AboutController(IAboutService aboutService, IMapper mapper)
         {
-            return View();
+            _aboutService = aboutService;
+            _mapper = mapper;
+        }
+
+        public async Task<IActionResult> Index()
+        {
+            return View(_mapper.Map<List<EntranceListDto>>(await _aboutService.ToListAsync()));
         }
     }
 }

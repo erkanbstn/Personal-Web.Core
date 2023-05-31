@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Components.Web;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,10 @@ namespace Personal.Core.Dto.Dtos.Entrance
         public string Title { get; set; }
         public string Content { get; set; }
         public string Detail { get; set; }
+        public bool Status { get; set; }
         public string ImageUrl { get; set; }
+        public DateTime CreatedAt { get; set; }
+
+
     }
 }
