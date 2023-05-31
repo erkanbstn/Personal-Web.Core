@@ -52,9 +52,9 @@ namespace Personal.Core.Service.Managers
             await _ExperienceRepository.ChangeStatusAsync(t);
         }
 
-        public async Task DeleteAllAsync(List<Experience> t)
+        public async Task DeleteAllAsync(string tableName)
         {
-            await _ExperienceRepository.DeleteAllAsync(t);
+            await _ExperienceRepository.DeleteAllAsync(tableName);
         }
 
         public async Task DeleteAsync(Experience t)

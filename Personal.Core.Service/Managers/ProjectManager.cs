@@ -52,9 +52,9 @@ namespace Personal.Core.Service.Managers
             await _ProjectRepository.ChangeStatusAsync(t);
         }
 
-        public async Task DeleteAllAsync(List<Project> t)
+        public async Task DeleteAllAsync(string tableName)
         {
-            await _ProjectRepository.DeleteAllAsync(t);
+            await _ProjectRepository.DeleteAllAsync(tableName);
         }
 
         public async Task DeleteAsync(Project t)

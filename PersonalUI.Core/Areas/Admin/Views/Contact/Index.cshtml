@@ -1,20 +1,30 @@
-﻿@model List<AboutListDto>
-
+﻿@model List<ContactListDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>About</h1>
+
+<h1>Contact</h1>
 <hr />
+
 <div class="card-body px-0 pt-0 pb-2">
     <div class="table-responsive p-0">
+        <br />
+        <a href="~/Admin/Contact/DeletePermanentlyAllContact" class="text-danger font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+            Delete All Permanently
+        </a>
+        |
+        <a href="~/Admin/Contact/PassiveAllContact" class="text-info font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+            Passive All
+        </a>
+        <br />
         <table class="table align-items-center mb-0">
             <thead>
                 <tr>
-                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">LinkedIn</th>
-                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Github</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Full Name</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Phone</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created</th>
                     <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
@@ -28,17 +38,17 @@
                         <td>
                             <div class="d-flex px-2 py-1">
                                 <div class="d-flex flex-column justify-content-center">
-                                    <h6 class="mb-0 text-sm">@Abo.Title</h6>
+                                    <h6 class="mb-0 text-sm">@Abo.FullName</h6>
                                     @*<p class="text-xs text-secondary mb-0">john@creative-tim.com</p>*@
                                 </div>
                             </div>
                         </td>
                         <td>
-                            <p class="text-xs font-weight-bold mb-0">@Abo.LinkedInUrl</p>
+                            <p class="text-xs font-weight-bold mb-0">@Abo.Email</p>
                             @*<p class="text-xs text-secondary mb-0">Organization</p>*@
                         </td>
                         <td>
-                            <p class="text-xs font-weight-bold mb-0">@Abo.GithubUrl</p>
+                            <p class="text-xs font-weight-bold mb-0">@Abo.Phone</p>
                             @*<p class="text-xs text-secondary mb-0">Organization</p>*@
                         </td>
                         <td class="align-middle text-center text-sm">
@@ -55,23 +65,23 @@
                             <span class="text-secondary text-xs font-weight-bold">@Convert.ToDateTime(Abo.CreatedAt).ToString("dd/MM/yyyy")</span>
                         </td>
                         <td class="align-middle">
-                            <a href="~/Admin/About/EditAbout/@Abo.Id" class="text-info font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                Edit
+                            <a href="~/Admin/Contact/DeleteContact/@Abo.Id" class="text-warning font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                Delete
                             </a>
                             |
-                            <a href="~/Admin/About/DeleteAbout/@Abo.Id" class="text-warning font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                                Delete
+                            <a href="~/Admin/Contact/DetailContact/@Abo.Id" class="text-primary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                Detail
                             </a>
                             |
                             @if (Abo.Status)
                             {
-                                <a href="~/Admin/About/ChangeStatusAbout/@Abo.Id" class="text-danger font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                <a href="~/Admin/Contact/ChangeStatusContact/@Abo.Id" class="text-danger font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                     Passive
                                 </a>
                             }
                             else
                             {
-                                        <a href="~/Admin/About/ChangeStatusAbout/@Abo.Id" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                <a href="~/Admin/Contact/ChangeStatusContact/@Abo.Id" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                     Active
                                 </a>
                             }
@@ -82,4 +92,3 @@
         </table>
     </div>
 </div>
-

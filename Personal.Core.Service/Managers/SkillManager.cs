@@ -52,9 +52,9 @@ namespace Personal.Core.Service.Managers
             await _SkillRepository.ChangeStatusAsync(t);
         }
 
-        public async Task DeleteAllAsync(List<Skill> t)
+        public async Task DeleteAllAsync(string tableName)
         {
-            await _SkillRepository.DeleteAllAsync(t);
+            await _SkillRepository.DeleteAllAsync(tableName);
         }
 
         public async Task DeleteAsync(Skill t)

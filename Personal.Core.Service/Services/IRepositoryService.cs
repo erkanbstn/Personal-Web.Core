@@ -6,7 +6,7 @@ namespace Personal.Core.Service.Services
     {
         Task InsertAsync(T t);
         Task DeleteAsync(T t);
-        Task DeleteAllAsync(List<T> t);
+        Task DeleteAllAsync(string tableName);
         Task ChangeStatusAsync(T t, bool status);
         Task ChangeStatusAllAsync(List<T> t, bool status);
         Task UpdateAsync(T t);

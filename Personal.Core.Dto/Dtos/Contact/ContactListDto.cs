@@ -13,5 +13,7 @@ namespace Personal.Core.Dto.Dtos.Contact
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Message { get; set; }
+        public DateTime CreatedAt { get; set; }
+        public bool Status { get; set; }
     }
 }

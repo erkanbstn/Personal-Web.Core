@@ -51,9 +51,9 @@ namespace Personal.Core.Service.Managers
             await _aboutRepository.ChangeStatusAsync(t);
         }
 
-        public async Task DeleteAllAsync(List<About> t)
+        public async Task DeleteAllAsync(string tableName)
         {
-            await _aboutRepository.DeleteAllAsync(t);
+            await _aboutRepository.DeleteAllAsync(tableName);
         }
 
         public async Task DeleteAsync(About t)

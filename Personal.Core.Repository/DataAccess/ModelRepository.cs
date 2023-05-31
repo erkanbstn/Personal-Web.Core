@@ -31,9 +31,9 @@ namespace Personal.Core.Repository.DataAccess
             await _appDbContext.SaveChangesAsync();
         }
 
-        public async Task DeleteAllAsync(List<T> t)
+        public async Task DeleteAllAsync(string tableName)
         {
-            _object.RemoveRange(t);
+            await _appDbContext.Database.ExecuteSqlRawAsync($"Truncate Table {tableName}");
             await _appDbContext.SaveChangesAsync();
         }
 

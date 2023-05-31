@@ -52,9 +52,9 @@ namespace Personal.Core.Service.Managers
             await _LanguageRepository.ChangeStatusAsync(t);
         }
 
-        public async Task DeleteAllAsync(List<Language> t)
+        public async Task DeleteAllAsync(string tableName)
         {
-            await _LanguageRepository.DeleteAllAsync(t);
+            await _LanguageRepository.DeleteAllAsync(tableName);
         }
 
         public async Task DeleteAsync(Language t)

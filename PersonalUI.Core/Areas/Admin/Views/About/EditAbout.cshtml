@@ -1,0 +1,31 @@
+﻿@model AboutEditDto
+@{
+    ViewData["Title"] = "EditAbout";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit About</h1>
+<hr />
+<div class="row">
+    <form method="post" enctype="multipart/form-data">
+        <input asp-for="Id" class="form-control" type="hidden" />
+        <span>Title</span>
+        <input asp-for="Title" class="form-control" type="text" placeholder="Enter Title.." />
+        <br />
+        <span>Content</span>
+        <input asp-for="Content" class="form-control" type="text" placeholder="Enter Content.." />
+        <br />
+        <span>LinkedIn Url</span>
+        <input asp-for="LinkedInUrl" class="form-control" type="text" placeholder="Enter LinkedIn Url.." />
+        <br />
+        <span>Github Url</span>
+        <input asp-for="GithubUrl" class="form-control" type="text" placeholder="Enter Github Url.." />
+        <br />
+        <span>Download Count</span>
+        <input asp-for="ClickCount" class="form-control" type="text" placeholder="Enter Download Count.." />
+        <br />
+        <input class="btn btn-info" value="Save Changes" type="submit" />
+    </form>
+</div>
+
+

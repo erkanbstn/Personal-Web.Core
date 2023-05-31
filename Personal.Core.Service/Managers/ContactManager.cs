@@ -52,9 +52,9 @@ namespace Personal.Core.Service.Managers
             await _ContactRepository.ChangeStatusAsync(t);
         }
 
-        public async Task DeleteAllAsync(List<Contact> t)
+        public async Task DeleteAllAsync(string tableName)
         {
-            await _ContactRepository.DeleteAllAsync(t);
+            await _ContactRepository.DeleteAllAsync(tableName);
         }
 
         public async Task DeleteAsync(Contact t)

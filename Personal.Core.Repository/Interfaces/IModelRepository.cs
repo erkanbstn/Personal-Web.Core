@@ -11,7 +11,7 @@ namespace Personal.Core.Repository.Interfaces
 	{
 		Task InsertAsync(T t);
 		Task DeleteAsync(T t);
-		Task DeleteAllAsync(List<T> t);
+		Task DeleteAllAsync(string tableName);
 		Task ChangeStatusAsync(T t);
 		Task ChangeStatusAllAsync(List<T> t);
 		Task UpdateAsync(T t);

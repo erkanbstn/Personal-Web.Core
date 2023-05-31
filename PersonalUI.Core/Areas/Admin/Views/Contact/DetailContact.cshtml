@@ -1,0 +1,26 @@
+﻿@model ContactListDto
+@{
+    ViewData["Title"] = "DetailContact";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>DetailContact</h1>
+<hr />
+<div class="row">
+    <form method="post" enctype="multipart/form-data">
+        <input asp-for="Id" class="form-control" type="hidden" />
+        <span>Full Name</span>
+        <input asp-for="FullName" class="form-control" type="text" placeholder="Enter Full Name.." />
+        <br />
+        <span>Email</span>
+        <input asp-for="Email" class="form-control" type="text" placeholder="Enter Email.." />
+        <br />
+        <span>Phone</span>
+        <input asp-for="Phone" class="form-control" type="text" placeholder="Enter Phone.." />
+        <br />
+        <span>Message</span>
+        <input asp-for="Message" class="form-control" type="text" placeholder="Enter Message.." />
+        <br />
+        <a class="btn btn-warning" href="~/Admin/Contact/DeletePermanentlyContact/@Model.Id">Delete Permanently</a>
+    </form>
+</div>

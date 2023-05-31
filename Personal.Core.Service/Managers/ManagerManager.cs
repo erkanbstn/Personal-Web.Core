@@ -52,9 +52,9 @@ namespace Personal.Core.Service.Managers
             await _ManagerRepository.ChangeStatusAsync(t);
         }
 
-        public async Task DeleteAllAsync(List<Manager> t)
+        public async Task DeleteAllAsync(string tableName)
         {
-            await _ManagerRepository.DeleteAllAsync(t);
+            await _ManagerRepository.DeleteAllAsync(tableName);
         }
 
         public async Task DeleteAsync(Manager t)

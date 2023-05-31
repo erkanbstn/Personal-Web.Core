@@ -52,9 +52,9 @@ namespace Personal.Core.Service.Managers
             await _EntranceRepository.ChangeStatusAsync(t);
         }
 
-        public async Task DeleteAllAsync(List<Entrance> t)
+        public async Task DeleteAllAsync(string tableName)
         {
-            await _EntranceRepository.DeleteAllAsync(t);
+            await _EntranceRepository.DeleteAllAsync(tableName);
         }
 
         public async Task DeleteAsync(Entrance t)
