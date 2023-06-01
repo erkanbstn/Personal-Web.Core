@@ -25,7 +25,6 @@ namespace PersonalUI.Core.Mapping.AutoMapperProfile
 			CreateMap<LanguageListDto, Language>().ReverseMap();
 			CreateMap<ContactListDto, Contact>().ReverseMap();
 			CreateMap<ContactAddDto, Contact>().ReverseMap();
-
 		}
 	}
 }

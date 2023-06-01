@@ -1,0 +1,21 @@
+﻿@model ProjectAddDto
+@{
+    ViewData["Title"] = "NewProject";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>New Project</h1>
+<hr />
+<div class="row">
+    <form method="post" enctype="multipart/form-data">
+        <span>Title</span>
+        <input asp-for="Title" class="form-control" type="text" placeholder="Enter Title.." />
+        <br />
+        <span>Content</span>
+        <textarea rows="5" cols="5" asp-for="Content" class="form-control" placeholder="Enter Content.."></textarea>
+        <span>Picture</span>
+        <input type="file" asp-for="Picture" class="form-control" placeholder="Choose File" />
+        <br />
+        <input class="btn btn-info" value="Save Changes" type="submit" />
+    </form>
+</div>

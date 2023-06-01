@@ -67,6 +67,11 @@ namespace Personal.Core.Service.Managers
             return await _ManagerRepository.GetByIdAsync(id);
         }
 
+        public async Task<Manager> GetByNameAsync(string userName)
+        {
+            return await _ManagerRepository.GetByNameAsync(userName);
+        }
+
         public async Task InsertAsync(Manager t)
         {
             await _ManagerRepository.InsertAsync(t);

@@ -17,6 +17,11 @@ namespace Personal.Core.Repository.DataAccess
             _appDbContext = appDbContext;
         }
 
+        public async Task<Manager> GetByNameAsync(string userName)
+        {
+            return await _appDbContext.Managers.FirstOrDefaultAsync(x => x.UserName == userName);
+        }
+
         public async Task<Manager> SignInAsync(Manager manager)
         {
             return await _appDbContext.Managers.Where(x => x.Status == true).FirstOrDefaultAsync(x => x.UserName == manager.UserName && x.Password == manager.Password);

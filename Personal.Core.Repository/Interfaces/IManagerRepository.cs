@@ -10,5 +10,6 @@ namespace Personal.Core.Repository.Interfaces
     public interface IManagerRepository : IModelRepository<Manager>
     {
         Task<Manager> SignInAsync(Manager manager);
+        Task<Manager> GetByNameAsync(string userName);
     }
 }

@@ -13,5 +13,7 @@ namespace Personal.Core.Service.Services
     {
         Task<Manager> SignInAsync(Manager manager);
         Task<ClaimsPrincipal> SignInWithClaimAsync(Manager manager);
+        Task<Manager> GetByNameAsync(string userName);
+
     }
 }
