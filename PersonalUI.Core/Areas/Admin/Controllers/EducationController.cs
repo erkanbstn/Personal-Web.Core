@@ -31,15 +31,15 @@ namespace PersonalUI.Core.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> NewEducation(EducationEditDto EducationEditDto)
+        public async Task<IActionResult> NewEducation(EducationAddDto educationAddDto)
         {
             await _educationService.InsertAsync(new()
             {
-                Content = EducationEditDto.Content,
-                Address = EducationEditDto.Address,
-                Date = EducationEditDto.Date,
-                Degree = EducationEditDto.Degree,
-                Graduation = EducationEditDto.Graduation,
+                Content = educationAddDto.Content,
+                Address = educationAddDto.Address,
+                Date = educationAddDto.Date,
+                Degree = educationAddDto.Degree,
+                Graduation = educationAddDto.Graduation,
             });
             return Redirect("~/Admin/Education/Index");
         }

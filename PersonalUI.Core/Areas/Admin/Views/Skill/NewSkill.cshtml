@@ -1,0 +1,16 @@
+﻿@model SkillAddDto
+@{
+    ViewData["Title"] = "NewSkill";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>New Skill</h1>
+<hr />
+<div class="row">
+    <form method="post">
+        <span>Content</span>
+        <input asp-for="Content" class="form-control" type="text" placeholder="Enter Content.." />
+        <br />
+        <input class="btn btn-info" value="Save Changes" type="submit" />
+    </form>
+</div>

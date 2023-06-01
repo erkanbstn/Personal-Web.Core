@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Personal.Core.Dto.Dtos.Language
 {
-    public class LanguageListDto
+    public class LanguageEditDto
     {
         public int Id { get; set; }
         public string Content { get; set; }

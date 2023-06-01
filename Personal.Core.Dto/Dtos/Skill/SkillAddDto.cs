@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Personal.Core.Dto.Dtos.Skill
 {
-    public class SkillListDto
+    public class SkillAddDto
     {
-        public int Id { get; set; }
         public string Content { get; set; }
-        public DateTime CreatedAt { get; set; }
-        public bool Status { get; set; }
     }
 }

@@ -31,15 +31,15 @@ namespace PersonalUI.Core.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> NewExperience(ExperienceEditDto ExperienceEditDto)
+        public async Task<IActionResult> NewExperience(ExperienceAddDto experienceAddDto)
         {
             await _ExperienceService.InsertAsync(new()
             {
-                Content = ExperienceEditDto.Content,
-                Address = ExperienceEditDto.Address,
-                Date = ExperienceEditDto.Date,
-                Company = ExperienceEditDto.Company,
-                Title = ExperienceEditDto.Title,
+                Content = experienceAddDto.Content,
+                Address = experienceAddDto.Address,
+                Date = experienceAddDto.Date,
+                Company = experienceAddDto.Company,
+                Title = experienceAddDto.Title,
             });
             return Redirect("~/Admin/Experience/Index");
         }

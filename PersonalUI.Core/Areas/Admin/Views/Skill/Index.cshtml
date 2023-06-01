@@ -1,0 +1,80 @@
+﻿@model List<SkillListDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h1>Skill</h1>
+<hr />
+<div class="card-body px-0 pt-0 pb-2">
+    <div class="table-responsive p-0">
+        <br />
+        <a href="~/Admin/Skill/NewSkill" class="text-primary font-weight-bold text-xs">
+            Add New Skill
+        </a>
+        <br />
+        <table class="table align-items-center mb-0">
+            <thead>
+                <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Content</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Ski in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="d-flex px-2 py-1">
+                                <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">@Ski.Content</h6>
+                                    @*<p class="text-xs text-secondary mb-0">john@creative-tim.com</p>*@
+                                </div>
+                            </div>
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                            @if (Ski.Status)
+                            {
+                                <span class="badge badge-sm bg-gradient-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-sm bg-gradient-danger">Passive</span>
+                            }
+                        </td>
+                        <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold">@Convert.ToDateTime(Ski.CreatedAt).ToString("dd/MM/yyyy")</span>
+                        </td>
+                        <td class="align-middle">
+                            <a href="~/Admin/Skill/EditSkill/@Ski.Id" class="text-info font-weight-bold text-xs">
+                                Edit
+                            </a>
+                            |
+                            <a href="~/Admin/Skill/DeleteSkill/@Ski.Id" class="text-warning font-weight-bold text-xs">
+                                Delete
+                            </a>
+                            |
+                            @if (Ski.Status)
+                            {
+                                <a href="~/Admin/Skill/ChangeStatusSkill/@Ski.Id" class="text-danger font-weight-bold text-xs">
+                                    Passive
+                                </a>
+                            }
+                            else
+                            {
+                                        <a href="~/Admin/Skill/ChangeStatusSkill/@Ski.Id" class="text-success font-weight-bold text-xs">
+                                    Active
+                                </a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
