@@ -1,21 +1,22 @@
-﻿@model EducationAddDto
+﻿@model ExperienceEditDto
 @{
-    ViewData["Title"] = "NewEducation";
+    ViewData["Title"] = "EditExperience";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>New Education</h1>
+<h1>Edit Experience</h1>
 <hr />
 <div class="row">
     <form method="post" enctype="multipart/form-data">
+        <input asp-for="Id" class="form-control" type="hidden" />
         <span>Address</span>
         <input asp-for="Address" class="form-control" type="text" placeholder="Enter Address.." />
         <br />
-        <span>Graduation</span>
-        <input asp-for="Graduation" class="form-control" type="text" placeholder="Enter Graduation.." />
+        <span>Title</span>
+        <input asp-for="Title" class="form-control" type="text" placeholder="Enter Title.." />
         <br />
-        <span>Degree</span>
-        <input asp-for="Degree" class="form-control" type="text" placeholder="Enter Degree.." />
+        <span>Company</span>
+        <input asp-for="Company" class="form-control" type="text" placeholder="Enter Company.." />
         <br />
         <span>Date</span>
         <input asp-for="Date" class="form-control" type="text" placeholder="Enter Date.." />
@@ -26,6 +27,3 @@
         <input class="btn btn-info" value="Save Changes" type="submit" />
     </form>
 </div>
-
-
-

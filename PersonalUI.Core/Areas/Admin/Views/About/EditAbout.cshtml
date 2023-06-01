@@ -12,9 +12,6 @@
         <span>Title</span>
         <input asp-for="Title" class="form-control" type="text" placeholder="Enter Title.." />
         <br />
-        <span>Content</span>
-        <input asp-for="Content" class="form-control" type="text" placeholder="Enter Content.." />
-        <br />
         <span>LinkedIn Url</span>
         <input asp-for="LinkedInUrl" class="form-control" type="text" placeholder="Enter LinkedIn Url.." />
         <br />
@@ -23,6 +20,9 @@
         <br />
         <span>Download Count</span>
         <input asp-for="ClickCount" class="form-control" type="text" placeholder="Enter Download Count.." />
+        <br />
+        <span>Content</span>
+        <textarea cols="5" rows="5" asp-for="Content" class="form-control"  placeholder="Enter Content.."></textarea>
         <br />
         <input class="btn btn-info" value="Save Changes" type="submit" />
     </form>

@@ -1,0 +1,95 @@
+﻿@model List<ExperienceListDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h1>Experience</h1>
+<hr />
+<div class="card-body px-0 pt-0 pb-2">
+    <div class="table-responsive p-0">
+        <br />
+        <a href="~/Admin/Experience/NewExperience" class="text-primary font-weight-bold text-xs">
+            Add New Experience
+        </a>
+        <br />
+        <table class="table align-items-center mb-0">
+            <thead>
+                <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Title</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Company</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Address</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Date</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
+                    <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Created</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Action</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Exp in Model)
+                {
+                    <tr>
+                        <td>
+                            <div class="d-flex px-2 py-1">
+                                <div class="d-flex flex-column justify-content-center">
+                                    <h6 class="mb-0 text-sm">@Exp.Title</h6>
+                                    @*<p class="text-xs text-secondary mb-0">john@creative-tim.com</p>*@
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="text-xs font-weight-bold mb-0">@Exp.Company</p>
+                            @*<p class="text-xs text-secondary mb-0">Organization</p>*@
+                        </td>
+                        <td>
+                            <p class="text-xs font-weight-bold mb-0">@Exp.Address</p>
+                            @*<p class="text-xs text-secondary mb-0">Organization</p>*@
+                        </td>
+                        <td>
+                            <p class="text-xs font-weight-bold mb-0">@Exp.Date</p>
+                            @*<p class="text-xs text-secondary mb-0">Organization</p>*@
+                        </td>
+                        <td class="align-middle text-center text-sm">
+                            @if (Exp.Status)
+                            {
+                                <span class="badge badge-sm bg-gradient-success">Active</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-sm bg-gradient-danger">Passive</span>
+                            }
+                        </td>
+                        <td class="align-middle text-center">
+                            <span class="text-secondary text-xs font-weight-bold">@Convert.ToDateTime(Exp.CreatedAt).ToString("dd/MM/yyyy")</span>
+                        </td>
+                        <td class="align-middle">
+                            <a href="~/Admin/Experience/EditExperience/@Exp.Id" class="text-info font-weight-bold text-xs">
+                                Edit
+                            </a>
+                            |
+                            <a href="~/Admin/Experience/DeleteExperience/@Exp.Id" class="text-warning font-weight-bold text-xs">
+                                Delete
+                            </a>
+                            |
+                            @if (Exp.Status)
+                            {
+                                <a href="~/Admin/Experience/ChangeStatusExperience/@Exp.Id" class="text-danger font-weight-bold text-xs">
+                                    Passive
+                                </a>
+                            }
+                            else
+                            {
+                                <a href="~/Admin/Experience/ChangeStatusExperience/@Exp.Id" class="text-success font-weight-bold text-xs">
+                                    Active
+                                </a>
+                            }
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>

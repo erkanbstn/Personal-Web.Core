@@ -15,5 +15,6 @@ namespace Personal.Core.Dto.Dtos.Experience
         public string Address { get; set; }
         public string Content { get; set; }
         public bool Status { get; set; }
+        public DateTime CreatedAt { get; set; }
     }
 }
