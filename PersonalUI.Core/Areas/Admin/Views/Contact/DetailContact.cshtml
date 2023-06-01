@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>DetailContact</h1>
+<h1>Detail Contact</h1>
 <hr />
 <div class="row">
     <form method="post" enctype="multipart/form-data">
@@ -19,7 +19,7 @@
         <input asp-for="Phone" class="form-control" type="text" placeholder="Enter Phone.." />
         <br />
         <span>Message</span>
-        <input asp-for="Message" class="form-control" type="text" placeholder="Enter Message.." />
+        <textarea rows="3" cols="3" asp-for="Message" class="form-control" placeholder="Enter Message.."></textarea>
         <br />
         <a class="btn btn-warning" href="~/Admin/Contact/DeletePermanentlyContact/@Model.Id">Delete Permanently</a>
     </form>

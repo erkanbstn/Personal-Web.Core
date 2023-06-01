@@ -6,16 +6,13 @@ using System.Threading.Tasks;
 
 namespace Personal.Core.Dto.Dtos.Education
 {
-    public class EducationListDto
+    public class EducationAddDto
     {
-        public int Id { get; set; }
         public string Date { get; set; }
         public string Graduation { get; set; }
         public string Degree { get; set; }
         public string Address { get; set; }
         public string Content { get; set; }
         public bool Status { get; set; }
-        public DateTime CreatedAt { get; set; }
-
     }
 }

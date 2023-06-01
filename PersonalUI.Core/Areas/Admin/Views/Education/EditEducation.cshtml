@@ -1,0 +1,31 @@
+﻿@model EducationEditDto
+@{
+    ViewData["Title"] = "EditEducation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Edit Education</h1>
+<hr />
+<div class="row">
+    <form method="post" enctype="multipart/form-data">
+        <input asp-for="Id" class="form-control" type="hidden" />
+        <span>Address</span>
+        <input asp-for="Address" class="form-control" type="text" placeholder="Enter Address.." />
+        <br />
+        <span>Graduation</span>
+        <input asp-for="Graduation" class="form-control" type="text" placeholder="Enter Graduation.." />
+        <br />
+        <span>Degree</span>
+        <input asp-for="Degree" class="form-control" type="text" placeholder="Enter Degree.." />
+        <br />
+        <span>Date</span>
+        <input asp-for="Date" class="form-control" type="text" placeholder="Enter Date.." />
+        <br />
+        <span>Content</span>
+        <input asp-for="Content" class="form-control" type="text" placeholder="Enter Content.." />
+        <br />
+        <input class="btn btn-info" value="Save Changes" type="submit" />
+    </form>
+</div>
+
+

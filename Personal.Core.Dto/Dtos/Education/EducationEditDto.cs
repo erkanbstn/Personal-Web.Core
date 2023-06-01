@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Personal.Core.Dto.Dtos.Education
 {
-    public class EducationListDto
+    public class EducationEditDto
     {
         public int Id { get; set; }
         public string Date { get; set; }
@@ -15,7 +15,5 @@ namespace Personal.Core.Dto.Dtos.Education
         public string Address { get; set; }
         public string Content { get; set; }
         public bool Status { get; set; }
-        public DateTime CreatedAt { get; set; }
-
     }
 }

@@ -11,11 +11,11 @@
 <div class="card-body px-0 pt-0 pb-2">
     <div class="table-responsive p-0">
         <br />
-        <a href="~/Admin/Contact/DeletePermanentlyAllContact" class="text-danger font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+        <a href="~/Admin/Contact/DeletePermanentlyAllContact" class="text-danger font-weight-bold text-xs">
             Delete All Permanently
         </a>
         |
-        <a href="~/Admin/Contact/PassiveAllContact" class="text-info font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+        <a href="~/Admin/Contact/PassiveAllContact" class="text-info font-weight-bold text-xs">
             Passive All
         </a>
         <br />
@@ -65,23 +65,23 @@
                             <span class="text-secondary text-xs font-weight-bold">@Convert.ToDateTime(Abo.CreatedAt).ToString("dd/MM/yyyy")</span>
                         </td>
                         <td class="align-middle">
-                            <a href="~/Admin/Contact/DeleteContact/@Abo.Id" class="text-warning font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                            <a href="~/Admin/Contact/DeleteContact/@Abo.Id" class="text-warning font-weight-bold text-xs">
                                 Delete
                             </a>
                             |
-                            <a href="~/Admin/Contact/DetailContact/@Abo.Id" class="text-primary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                            <a href="~/Admin/Contact/DetailContact/@Abo.Id" class="text-primary font-weight-bold text-xs">
                                 Detail
                             </a>
                             |
                             @if (Abo.Status)
                             {
-                                <a href="~/Admin/Contact/ChangeStatusContact/@Abo.Id" class="text-danger font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                <a href="~/Admin/Contact/ChangeStatusContact/@Abo.Id" class="text-danger font-weight-bold text-xs">
                                     Passive
                                 </a>
                             }
                             else
                             {
-                                <a href="~/Admin/Contact/ChangeStatusContact/@Abo.Id" class="text-success font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                <a href="~/Admin/Contact/ChangeStatusContact/@Abo.Id" class="text-success font-weight-bold text-xs">
                                     Active
                                 </a>
                             }
