@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.FileProviders;
 using Personal.Core.Repository.DataAccess;
 using Personal.Core.Repository.Interfaces;
@@ -11,8 +12,16 @@ namespace PersonalUI.Core.Extensions
 {
     public static class StartupConfiguration
     {
-        public static void ConfigureProgramDependencies(this IServiceCollection services)
+        // Container Services Dependencies
+        public static void ConfigureServices(this IServiceCollection services, IConfiguration configuration)
         {
+            // Context Configuration
+
+            services.AddDbContext<AppDbContext>(options =>
+            {
+                options.UseSqlServer(configuration.GetConnectionString("Sql"));
+            });
+
             // Default Mvc
 
             services.AddControllersWithViews();
@@ -64,6 +73,40 @@ namespace PersonalUI.Core.Extensions
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(x => { x.LoginPath = "/Auth/SignIn"; });
+        }
+        // Container App Dependencies
+        public static WebApplication ConfigureApp(this WebApplication webApplication)
+        {
+
+            if (!webApplication.Environment.IsDevelopment())
+            {
+                webApplication.UseExceptionHandler("/Home/Error");
+                webApplication.UseHsts();
+            }
+            // Error Page Configuration
+
+            webApplication.UseStatusCodePages();
+            webApplication.UseStatusCodePagesWithReExecute("/Main/Error", "?code={0}");
+
+
+            webApplication.UseHttpsRedirection();
+            webApplication.UseStaticFiles();
+            webApplication.UseRouting();
+            webApplication.UseAuthentication();
+            webApplication.UseAuthorization();
+
+            // Default Controllers
+            webApplication.MapControllerRoute(
+                name: "default",
+                pattern: "{controller=Main}/{action=Index}/{id?}");
+
+            // Area Controllers
+            webApplication.MapControllerRoute(
+               name: "areas",
+                  pattern: "{area:exists}/{controller=Entrance}/{action=Index}/{id?}");
+
+            webApplication.Run();
+            return webApplication;
         }
     }
 }
